@@ -39,14 +39,21 @@ on early-fs
     write /proc/sys/walt/sched_lib_mask_force 255
 
 on fs
-    # All entries in recovery.fstab
+    # Boot, recovery and firmware partitions
+    write /sys/block/sde/queue/read_ahead_kb 2048
+    write /sys/block/sde/queue/nr_requests 256
+    write /sys/block/sde/queue/iostats 0
+
+    # Most of entries in recovery.fstab
     write /sys/block/sda/queue/read_ahead_kb 2048
     write /sys/block/sda/queue/nr_requests 256
     write /sys/block/sda/queue/discard_max_bytes 134217728
+    write /sys/block/sda/queue/iostats 0
 
     # Persist partition
     write /sys/block/sdf/queue/read_ahead_kb 2048
     write /sys/block/sdf/queue/nr_requests 256
+    write /sys/block/sdf/queue/iostats 0
 
 on boot
     setprop sys.usb.config adb
