@@ -93,7 +93,6 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-	$(DEVICE_PATH) \
 	vendor/qcom/opensource/commonsys-intf/display
 
 # TWRP - Specifics
