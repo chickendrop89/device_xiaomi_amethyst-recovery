@@ -16,5 +16,25 @@ do_prop_cleanup() {
     resetprop -d twrp.temp.security_patch 
 }
 
+undo_sysctl_tune() {
+    LOGMSG "Reverting sysctl tune..."
+    
+    gov=$(resetprop twrp.temp.cpu_governor);
+    if [ -n "$gov" ]; 
+        then
+            for g in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; 
+                do echo "$gov" > "$g" 2>/dev/null;
+            done
+
+            resetprop -d twrp.temp.cpu_governor;
+    fi
+
+	echo 10000 > /sys/bus/platform/devices/1d84000.ufshc/auto_hibern8 2>/dev/null
+    echo 1 > /sys/bus/platform/devices/1d84000.ufshc/clkgate_enable 2>/dev/null
+    echo 1 > /sys/bus/platform/devices/1d84000.ufshc/enable_wb_buf_flush 2>/dev/null
+	echo 0 > /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled 2>/dev/null
+}
+
 do_prop_cleanup;
+undo_sysctl_tune;
 exit 0;
