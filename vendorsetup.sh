@@ -50,6 +50,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ];
     export FOX_USE_PATCHELF_BINARY=1
     export FOX_USE_GREP_BINARY=1
     export FOX_ASH_IS_BASH=1
+    export FOX_BASH_TO_SYSTEM_BIN=1
     export FOX_REPLACE_TOOLBOX_GETPROP=1
 
     # Settings/Data storage locations
