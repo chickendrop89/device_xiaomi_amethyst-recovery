@@ -44,8 +44,11 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ];
     export FOX_USE_SED_BINARY=1
     export FOX_USE_XZ_UTILS=1
     export FOX_USE_ZSTD_BINARY=1
+    export FOX_USE_LZ4_BINARY=1
     export FOX_USE_DATE_BINARY=1
     export FOX_USE_FSCK_EROFS_BINARY=1
+    export FOX_USE_PATCHELF_BINARY=1
+    export FOX_USE_GREP_BINARY=1
     export FOX_ASH_IS_BASH=1
     export FOX_REPLACE_TOOLBOX_GETPROP=1
 
