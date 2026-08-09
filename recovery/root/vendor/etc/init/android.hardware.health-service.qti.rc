@@ -8,7 +8,6 @@ on fs
 service vendor.health-qti /vendor/bin/hw/android.hardware.health-service.qti
     user system
     group system
-    capabilities WAKE_ALARM BLOCK_SUSPEND
     file /dev/kmsg w
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/bin
     seclabel u:r:recovery:s0

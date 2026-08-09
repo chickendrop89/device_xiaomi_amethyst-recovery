@@ -14,7 +14,6 @@ service touchfeature-service /vendor/bin/hw/vendor.xiaomi.hw.touchfeature-servic
     group root system input
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/vendor/odm/lib64:/bin
     seclabel u:r:recovery:s0
-    capabilities SYS_NICE
     priority -10
     ioprio rt 4
     disabled
